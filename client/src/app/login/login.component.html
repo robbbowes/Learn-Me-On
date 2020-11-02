@@ -1,0 +1,32 @@
+<div class="container" *ngIf="(accountService.currentUser$ | async) === null">
+  <form
+    #loginForm="ngForm"
+    (ngSubmit)="login()"
+    class="form-inline mt-2 mt-md-0"
+  >
+    <input
+      class="form-control"
+      type="text"
+      name="username"
+      placeholder="Username"
+      [(ngModel)]="model.username"
+      autocomplete="off"
+    />
+    <input
+      class="form-control mt-sm-2"
+      type="password"
+      name="password"
+      placeholder="Password"
+      [(ngModel)]="model.password"
+      autocomplete="off"
+    />
+    <div class="form-group text-center mt-sm-2">
+      <button class="btn btn-success mr-2" type="submit">
+        Login
+      </button>
+      <button (click)="cancel()" class="btn btn-default" type="button">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

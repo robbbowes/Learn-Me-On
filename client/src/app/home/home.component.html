@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div *ngIf="!registerMode && !loginMode && (accountService.currentUser$ | async) === null" style='text-align: center'>
+        <h1>Log in or register</h1>
+        <p class="lead">Your language learning journey awaits!</p>
+        <div class="text-center">
+            <button (click)="loginToggle()" class="btn btn-primary btn-large mr-2">Log in</button>
+            <button (click)="registerToggle()" class="btn btn-info btn-large">Register</button>
+        </div>
+    </div>
+
+    <div *ngIf="loginMode || registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <ng-container *ngIf="registerMode">
+                    <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+                </ng-container>
+                <ng-container *ngIf="loginMode">
+                    <app-login (cancelLogin)="cancelLoginMode($event)"></app-login>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="(accountService.currentUser$ | async) as user">
+        <h1>Welcome back, {{user.username | titlecase}}!</h1>
+    </div>
+</div>
