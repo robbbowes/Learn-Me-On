@@ -16,6 +16,8 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { SharedModule } from './_modules/shared.module';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { LessonStatusPipe } from './_pipes/lesson-status.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     RegisterComponent,
     NotFoundComponent,
     TestErrorsComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    CatalogueComponent,
+    LessonStatusPipe
   ],
   imports: [
     BrowserModule,
