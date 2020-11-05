@@ -1,20 +1,46 @@
-<div *ngFor="let course of courses" class="card" style="width: 50rem">
-  <div class="card-body">
-    <h5 class="card-title">
-      {{ course.name }}
-    </h5>
-    <h6 class="card-subtitle mb-2 text-muted">
-      {{ course.language.name }} - {{ course.lessons.length }} Lessons
-    </h6>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-    <p *ngFor="let lesson of course.lessons">
-      Lesson {{ lesson.number }} - {{ lesson.lessonStatus | lessonStatus }}
-    </p>
-    <button class="btn btn-success" routerLink="/courses/{{ course.id }}">
-      Go To Course
-    </button>
+<div class="row">
+  <div class="col-2">
+    <div class="btn-group-vertical" role="group">
+      <button type="button" class="btn btn-secondary">1</button>
+      <button type="button" class="btn btn-secondary">2</button>
+
+      <div class="btn-group dropdown" role="group" dropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          dropdownToggle
+        >
+          Dropdown
+        </button>
+        <div class="dropdown-menu" *dropdownMenu>
+          <a class="dropdown-item" href="#">Dropdown link</a>
+          <a class="dropdown-item" href="#">Dropdown link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-10">
+    <div *ngFor="let course of courses" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ course.name }}
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ course.language.name }} - {{ course.lessons.length }} Lessons
+        </h6>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <p *ngFor="let lesson of course.lessons">
+          Lesson {{ lesson.number }} -
+          {{ lesson.lessonStatus | lessonStatus }}
+        </p>
+        <button class="btn btn-success" routerLink="/courses/{{ course.id }}">
+          Go To Course
+        </button>
+      </div>
+    </div>
   </div>
 </div>
